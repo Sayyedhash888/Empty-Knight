@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Empty Knight</title>
+  <!-- Google Fonts for Gothic Titles and clean HUD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HTML/CSS HUD and Menu Overlays for crisp rendering -->
+    <div id="uiOverlay" class="ui-overlay">
+      
+      <!-- Main Menu -->
+      <div id="mainMenu" class="menu-screen active">
+        <div class="menu-vignette"></div>
+        <div class="menu-content">
+          <h1 class="game-title">EMPTY KNIGHT</h1>
+          <p class="game-subtitle">A web tribute to Hollow Knight</p>
+          <div class="menu-options">
+            <button id="btnStart" class="menu-button">ENTER HALLOWNEST</button>
+            <button id="btnControls" class="menu-button">CONTROLS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls Sub-Menu -->
+      <div id="controlsMenu" class="menu-screen hidden">
+        <div class="menu-vignette"></div>
+        <div class="menu-content">
+          <h2 class="menu-title">CONTROLS</h2>
+          <div class="controls-grid">
+            <div class="control-row"><span class="control-key">A / D</span> or <span class="control-key">← / →</span><span class="control-desc">Walk Left / Right</span></div>
+            <div class="control-row"><span class="control-key">W</span> or <span class="control-key">↑</span><span class="control-desc">Look Up</span></div>
+            <div class="control-row"><span class="control-key">S</span> or <span class="control-key">↓</span><span class="control-desc">Look Down / Sit on Bench</span></div>
+            <div class="control-row"><span class="control-key">SPACE</span> or <span class="control-key">C</span><span class="control-desc">Jump / Double Jump</span></div>
+            <div class="control-row"><span class="control-key">Right Click</span> or <span class="control-key">SHIFT</span><span class="control-desc">Dash (Mothwing Cloak)</span></div>
+            <div class="control-row"><span class="control-key">Left Click</span> or <span class="control-key">Z</span><span class="control-desc">Attack (Nail Slash)</span></div>
+            <div class="control-row"><span class="control-key">E / F</span><span class="control-desc">Focus / Heal (Hold while still)</span></div>
+            <div class="control-row"><span class="control-key">ENTER</span> or <span class="control-key">ESC</span><span class="control-desc">Pause Game</span></div>
+          </div>
+          <button id="btnControlsBack" class="menu-button">BACK</button>
+        </div>
+      </div>
+
+      <!-- Dialogue/Lore Box -->
+      <div id="dialogueBox" class="dialogue-box hidden">
+        <div class="dialogue-content">
+          <p id="dialogueText">...</p>
+          <span class="dialogue-prompt">Press SPACE to close</span>
+        </div>
+      </div>
+
+      <!-- Defeated / Game Over Screen -->
+      <div id="gameOverScreen" class="menu-screen hidden">
+        <div class="black-out"></div>
+        <div class="defeated-content">
+          <h1 class="defeated-title">DEFEATED</h1>
+          <p class="defeated-text">Your shell has fractured...</p>
+          <button id="btnRespawn" class="menu-button">WAKE UP</button>
+        </div>
+      </div>
+
+      <!-- Pause Screen -->
+      <div id="pauseMenu" class="menu-screen hidden">
+        <div class="menu-vignette"></div>
+        <div class="menu-content">
+          <h2 class="menu-title">PAUSED</h2>
+          <div class="menu-options">
+            <button id="btnResume" class="menu-button">RESUME</button>
+            <button id="btnQuit" class="menu-button">RETURN TO MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mute Button Toggle -->
+      <div id="audioControls" class="audio-controls">
+        <button id="btnMute" class="icon-button">
+          <!-- Speaker Icon -->
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path id="speakerPath" fill="white" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+      </div>
+      
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
